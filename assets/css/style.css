@@ -1,0 +1,17 @@
+body {
+    background-image: url("../images/background.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
+    
+}
+.container{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+#start {
+    width: 25%;
+    height: auto;
+}
