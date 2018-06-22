@@ -13,17 +13,18 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=New+Rocker" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Stardos+Stencil" rel="stylesheet">
 </head>
 
 <body>
     <div class="bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8" id="header"></div>
-            </div>
+        <div class="container" id="header"></div>
+        <div class="container" id="end">
+            <p id="goals"></p>
+            <p id="redcards"></p>
+            <p id="missedpks"></p>
         </div>
+        <div class="container" id="clickToBegin"></div>
         <div class="container" id="main">
             <div>
                 <img id="start" src="assets/images/ball.jpg">
@@ -31,14 +32,14 @@
             <div class="container" id="timer"></div>
             <div class="container" id="trivia">
                 <h3 id="question"></h3>
-
                 <button button type="button" class="btn btn-dark btn-lg" id="answer1"></button>
                 <button button type="button" class="btn btn-dark btn-lg" id="answer2"></button>
                 <button button type="button" class="btn btn-dark btn-lg" id="answer3"></button>
                 <button button type="button" class="btn btn-dark btn-lg" id="answer4"></button>
-
             </div>
             <div id="intermission"></div>
+            <div id="correctAnswer"></div>
+
         </div>
     </div>
 </body>
