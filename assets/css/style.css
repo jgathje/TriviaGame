@@ -4,6 +4,7 @@ body {
     background-position: center;
     background-repeat: repeat;
     background-size: cover;
+    font-weight: bold
     
     
 }
@@ -19,7 +20,8 @@ body {
     font-size: 72px;
     font-weight: bold;
 }
-#clickToBegin{
+#trivia{
+    font-size: 36px;
     
 }
 #start {
@@ -29,8 +31,10 @@ body {
 
 #timer {
     font-size: 72px;
+    font-weight: bold;
 }
 
 #end {
     font-size: 36px;
+    font-weight: bold;
 }

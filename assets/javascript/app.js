@@ -4,7 +4,7 @@ $(document).ready(function () {
     $("#end").hide();
     $("#header").text("WORLD CUP TRIVIA");
     $("#clickToBegin").text("Click The Ball To Begin!");
-    $("#start").on("click", () => gameStart());
+    $("#start").on("click", () => answer());
 
 })
 let intervalId;
@@ -20,6 +20,7 @@ const trivia = {
     intermissionTime: 4,
 
     questions: [
+        `Which team has won the most World Cups with 5?`,
         `Who scored the infamous "Hand Of God" goal in the 1986 World Cup Final?`,
         `Which Italian player missed the final penalty kick in the 1994 World Cup Final?`,
         `Which player won the Golden Ball award in 2002 despite losing in the final?`,
@@ -27,12 +28,12 @@ const trivia = {
         `South Africa became the first African nation to host the World Cup in which year:`,
         `Which United States player scored in dramatic fashion to beat Ghana in the 2010 World Cup?`,
         `Which goalkeeper set a record for saves in a single match against Belgium in 2014?`,
-        `Which team has won the most World Cups with 5?`,
         `Who is the only host country to ever win a World Cup?`,
         `Which Mexican player recently tied a record by appearing in his 5th World Cup?`,
     ],
 
     answers: [
+        ["Brazil", "France", "Germany", "Italy"],
         ["Sergio Almirón", "Diego Maradona", "Carlos Tapia", "Sergio Batista"],
         ["Dino Baggio", "Paolo Maldini", "Roberto Baggio", "Daniele Massaro"],
         ["Michael Ballack", "Oliver Kahn", "Miroslav Klose", "Oliver Bierhoff"],
@@ -40,12 +41,12 @@ const trivia = {
         ["2002", "2006", "2010", "2014"],
         ["Clint Dempsey", "Landon Donovan", "Jozy Altidore", "Michael Bradley(is awful)"],
         ["Iker Casillas", "Manuel Neuer", "Joe Hart", "Tim Howard"],
-        ["Brazil", "France", "Germany", "Italy"],
         ["France", "Germany", "England", "Mexico"],
         ["Javier Hernández", "Rafael Márquez", "Miguel Layún", "Guillermo Ochoa"],
     ],
 
     correctAnswers: [
+        "Brazil",
         "Diego Maradona",
         "Roberto Baggio",
         "Oliver Kahn",
@@ -53,7 +54,6 @@ const trivia = {
         "2010",
         "Landon Donovan",
         "Tim Howard",
-        "Brazil",
         "France",
         "Rafael Márquez",
     ],
@@ -62,7 +62,7 @@ const trivia = {
 
 function timer() {
     trivia.time--;
-    $("#timer").html("<h1>" + trivia.time + "</h1>");
+    $("#timer").html("<p>" + trivia.time + "</p>");
     console.log(trivia.time);
     console.log(trivia.intermissionTime);
     if (trivia.time === 0) {
@@ -78,6 +78,7 @@ function clock() {
 function intermissionTimer() {
     trivia.intermissionTime--;
     console.log(trivia.intermissionTime);
+
     if (trivia.intermissionTime === 0) {
         gameStart();
     }
@@ -106,10 +107,10 @@ function gameStart() {
         $("#header").hide();
         $("#trivia").show();
         $("#timer").show();
-        $("#timer").html("<h1>" + trivia.time + "</h1>");
+        $("#timer").html("<p>" + trivia.time + "<p>");
         getQuestion();
+        // answer();
         clock();
-        answer();
     }
 }
 
@@ -122,8 +123,8 @@ function getQuestion() {
 }
 
 function answer() {
+    gameStart();
     $("#answer1").on("click", function () {
-        clearInterval(intervalId);
         compareAnswer = trivia.answers[trivia.number][0]
         console.log(compareAnswer);
         if (compareAnswer === trivia.correctAnswers[trivia.number]) {
@@ -140,7 +141,6 @@ function answer() {
             rightAnswer();
         }
         else if (compareAnswer != trivia.correctAnswers[trivia.number]) {
-            trivia.wrong++;
             wrongAnswer();
         }
     })
@@ -177,7 +177,7 @@ function rightAnswer() {
     $("#intermission").show();
     $("#intermission").html('<img src="assets/images/correct.gif">');
     $("#correctAnswer").text("CORRECT! It was " + trivia.correctAnswers[trivia.number] + "!");
-    trivia.right += 1;
+    trivia.right++;
     trivia.time = 10;
     $("#timer").html("<h4>" + trivia.time + "</h4>");
     console.log("R" + trivia.right);
@@ -201,7 +201,7 @@ function wrongAnswer() {
     $("#correctAnswer").show();
     $("#intermission").html('<img src="assets/images/wrong.gif">');
     $("#correctAnswer").text("WRONG! The correct answer was " + trivia.correctAnswers[trivia.number] + "!");
-    trivia.wrong += 1;
+    trivia.wrong++;
     trivia.time = 10;
     $("#timer").html("<h4>" + trivia.time + "</h4>");
     console.log("R" + trivia.right);
