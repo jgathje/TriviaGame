@@ -1,3 +1,6 @@
+let goal = new Audio("assets/javascript/goal.wav");
+let whistle = new Audio("assets/javascript/whistle.wav");
+let whiff = new Audio("assets/javascript/whiff.mp3");
 $(document).ready(function () {
     $("#trivia").hide();
     $("#timer").hide();
@@ -10,6 +13,7 @@ $(document).ready(function () {
 let intervalId;
 let intermissionIntervalId;
 let compareAnswer;
+
 
 const trivia = {
     right: 0,
@@ -167,6 +171,7 @@ function answer() {
 }
 
 function rightAnswer() {
+    goal.play();
     clearInterval(intermissionIntervalId);
     intermissionClock();
     $("#trivia").hide();
@@ -190,6 +195,7 @@ function rightAnswer() {
 }
 
 function wrongAnswer() {
+    whistle.play();
     clearInterval(intermissionIntervalId);
     intermissionClock();
     console.log(trivia.time);
@@ -213,6 +219,7 @@ function wrongAnswer() {
 }
 
 function noAnswer() {
+    whiff.play();
     intermissionClock();
     clearInterval(intervalId);
     console.log(trivia.time);
