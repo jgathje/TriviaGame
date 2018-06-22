@@ -67,16 +67,16 @@ const trivia = {
     ],
     
     gifs: [
-        '<img src="assets/images/brazilwin.gif">',
-        '<img src="assets/images/handofgod.gif">',
-        '<img src="assets/images/baggio.gif">',
-        '<img src="assets/images/kahn.gif">',
-        '<img src="assets/images/zidadne.gif">',
-        '<img src="assets/images/southafrica.gif">',
-        '<img src="assets/images/donovan.gif">',
-        '<img src="assets/images/howard.gif">',
-        '<img src="assets/images/klose.gif">',
-        '<img src="assets/images/rafa.gif">',
+        '<img src="assets/images/brazilwin.gif" class="img-responsive">',
+        '<img src="assets/images/handofgod.gif" class="img-responsive">',
+        '<img src="assets/images/baggio.gif" class="img-responsive">',
+        '<img src="assets/images/kahn.gif" class="img-responsive">',
+        '<img src="assets/images/zidadne.gif" class="img-responsive">',
+        '<img src="assets/images/southafrica.gif" class="img-responsive">',
+        '<img src="assets/images/donovan.gif" class="img-responsive">',
+        '<img src="assets/images/howard.gif" class="img-responsive">',
+        '<img src="assets/images/klose.gif" class="img-responsive">',
+        '<img src="assets/images/rafa.gif" class="img-responsive">',
     ],
 
 }
@@ -263,7 +263,7 @@ function noAnswer() {
     $("#intermission").show();
     $("#correctAnswer").show();
     $("#intermission").html(trivia.gifs[trivia.number]);
-    $("#correctAnswer").text("The correct answer was " + trivia.correctAnswers[trivia.number] + "! " + trivia.correctAnswers[trivia.number][1]);
+    $("#correctAnswer").text("The correct answer was " + trivia.correctAnswers[trivia.number][0] + "! " + trivia.correctAnswers[trivia.number][1]);
     trivia.unanswered++;
     trivia.time = 10;
     $("#timer").html("<h4>" + trivia.time + "</h4>");
@@ -277,6 +277,7 @@ function gameOver() {
     clearInterval(intermissionIntervalId);
     clearInterval(intervalId);
     console.log(trivia.unanswered);
+    $("#clickToBegin").text("Click Here To Try Again!")
     $("#trivia").hide();
     $("#correctAnswer").hide();
     $("#intermission").hide();
@@ -284,7 +285,6 @@ function gameOver() {
     $("#goal").hide();
     $("#miss").hide();
     $("#score").show();
-    $("#start").show();
     $("#clickToBegin").show();
     $("#timer").hide();
     $("#score").text(`THE REF HAS SIGNALED
@@ -300,4 +300,5 @@ function gameOver() {
     trivia.time = 10;
     trivia.number = -1;
     trivia.intermissionTime = 4;
+    $("#clickToBegin").on("click", () => answer());
 }
