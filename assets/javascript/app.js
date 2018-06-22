@@ -101,6 +101,7 @@ function gameStart() {
         $("#correctAnswer").hide();
         $("#clickToBegin").hide();
         $("#intermission").hide();
+        $("#end").hide();
         $("#start").hide();
         $("#header").hide();
         $("#trivia").show();
