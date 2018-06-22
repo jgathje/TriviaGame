@@ -16,9 +16,16 @@ body {
     padding: 20px;
 }
 
-#header{
+#welcome {
+    margin-top: 20px;
     font-size: 72px;
     font-weight: bold;
+    color: darkgoldenrod;
+    background-color: black;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    border-width: 4px;
+    border-radius: 25px 25px 25px 25px;
 }
 #trivia{
     font-size: 36px;
@@ -30,11 +37,123 @@ body {
 }
 
 #timer {
+    width: 20%;
     font-size: 72px;
     font-weight: bold;
+    color: darkgoldenrod;
+    background-color: black;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    border-width: 4px;
+    border-radius: 25px 25px 25px 25px;
+    padding: 0px;
+
 }
 
 #end {
     font-size: 36px;
     font-weight: bold;
+}
+
+
+#question {
+        padding: 10px;
+        color: darkgoldenrod;
+        background-color: black;
+        border-style: solid;
+        border-color: darkgoldenrod;
+        border-width: 4px;
+        border-radius: 25px 25px 25px 25px;
+        width: auto;
+}
+
+#left {
+    width: 7%;
+    height: auto;
+    margin-right: 80px;
+}
+
+#right {
+    width: 7%;
+    height: auto;
+    margin-left: 80px;
+}
+
+#red {
+    align-content: center;
+    width: 42%;
+    font-size: 72px;
+    font-weight: bold;
+    color: darkgoldenrod;
+    background-color: black;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    border-width: 4px;
+    border-radius: 25px 25px 25px 25px;
+}
+
+#goal {
+    align-content: center;
+    width: 50%;
+    font-size: 72px;
+    font-weight: bold;
+    color: darkgoldenrod;
+    background-color: black;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    border-width: 4px;
+    border-radius: 25px 25px 25px 25px;
+}
+
+#miss {
+    align-content: center;
+    width: 60%;
+    font-size: 72px;
+    font-weight: bold;
+    color: darkgoldenrod;
+    background-color: black;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    border-width: 4px;
+    border-radius: 25px 25px 25px 25px;
+}
+
+#score {
+    align-content: center;
+    width: 60%;
+    font-size: 36px;
+    font-weight: bold;
+    color: darkgoldenrod;
+    background-color: black;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    border-width: 4px;
+    border-radius: 25px 25px 25px 25px;
+}
+
+#answer1, #answer2, #answer3, #answer4 {
+    background-color: rgba(0, 0, 0, 0.863);
+    color: darkgoldenrod;
+    border: 2px;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    border-radius: 25px;
+}
+
+#answer1:hover, #answer2:hover, #answer3:hover, #answer4:hover {
+    background-color: black;
+    color: darkgoldenrod;
+}
+
+#correctAnswer {
+    margin-top: 20px;
+    align-content: center;
+    font-weight: bold;
+    color: darkgoldenrod;
+    background-color: black;
+    border-style: solid;
+    border-color: darkgoldenrod;
+    border-width: 4px;
+    border-radius: 25px 25px 25px 25px;
+    padding: 10px;
 }

@@ -4,8 +4,12 @@ let whiff = new Audio("assets/javascript/whiff.mp3");
 $(document).ready(function () {
     $("#trivia").hide();
     $("#timer").hide();
+    $("#red").hide();
+    $("#goal").hide();
+    $("#miss").hide();
+    $("#score").hide();
     $("#end").hide();
-    $("#header").text("WORLD CUP TRIVIA");
+    $("#correctAnswer").hide();
     $("#clickToBegin").text("Click The Ball To Begin!");
     $("#start").on("click", () => answer());
 
@@ -13,7 +17,7 @@ $(document).ready(function () {
 let intervalId;
 let intermissionIntervalId;
 let compareAnswer;
-
+let scoreboard = "00:"
 
 const trivia = {
     right: 0,
@@ -30,9 +34,9 @@ const trivia = {
         `Which player won the Golden Ball award in 2002 despite losing in the final?`,
         `Who did Zinadine Zidane headbut in the 2006 World Cup Final?`,
         `South Africa became the first African nation to host the World Cup in which year:`,
-        `Which United States player scored in dramatic fashion to beat Ghana in the 2010 World Cup?`,
+        `Which United States player scored in dramatic fashion to beat Algeria in the 2010 World Cup?`,
         `Which goalkeeper set a record for saves in a single match against Belgium in 2014?`,
-        `Who is the only host country to ever win a World Cup?`,
+        `Who has the most career goals in World Cup history?`,
         `Which Mexican player recently tied a record by appearing in his 5th World Cup?`,
     ],
 
@@ -45,28 +49,41 @@ const trivia = {
         ["2002", "2006", "2010", "2014"],
         ["Clint Dempsey", "Landon Donovan", "Jozy Altidore", "Michael Bradley(is awful)"],
         ["Iker Casillas", "Manuel Neuer", "Joe Hart", "Tim Howard"],
-        ["France", "Germany", "England", "Mexico"],
+        ["Miroslav Klose", "Pelé", "Ronaldo", "Diego Maradona"],
         ["Javier Hernández", "Rafael Márquez", "Miguel Layún", "Guillermo Ochoa"],
     ],
 
     correctAnswers: [
-        "Brazil",
-        "Diego Maradona",
-        "Roberto Baggio",
-        "Oliver Kahn",
-        "Marco Materazzi",
-        "2010",
-        "Landon Donovan",
-        "Tim Howard",
-        "France",
-        "Rafael Márquez",
+        ["Brazil", "Germany and Italy are next with 4."],
+        ["Diego Maradona", "With video review, the goal would not stand today."],
+        ["Roberto Baggio", "Baggio's miss handed Brazil their 4th World Cup title."],
+        ["Oliver Kahn", "Kahn and Germany lost to Brazil in the Final"],
+        ["Marco Materazzi", "France ended up losing the title to Italy on penalties."],
+        ["2010", "Spain captured their first World Cup title, defeating the Netherlands 1-0 in extra time."],
+        ["Landon Donovan", "Donovan scored deep into stopage time to send the U.S. through to the knockout round."],
+        ["Tim Howard", "Howard made 16 saves in a 2-1 extra time loss."],
+        ["Miroslav Klose", "Klose scored 16 goals in his career. Ronaldo is second with 15."],
+        ["Rafael Márquez", "Marquez joins Gianluigi Buffon, Lothar Matthäus, and Antonio Carbajal."],
+    ],
+    
+    gifs: [
+        '<img src="assets/images/brazilwin.gif">',
+        '<img src="assets/images/handofgod.gif">',
+        '<img src="assets/images/baggio.gif">',
+        '<img src="assets/images/kahn.gif">',
+        '<img src="assets/images/zidadne.gif">',
+        '<img src="assets/images/southafrica.gif">',
+        '<img src="assets/images/donovan.gif">',
+        '<img src="assets/images/howard.gif">',
+        '<img src="assets/images/klose.gif">',
+        '<img src="assets/images/rafa.gif">',
     ],
 
 }
 
 function timer() {
     trivia.time--;
-    $("#timer").html("<p>" + trivia.time + "</p>");
+    $("#timer").text(scoreboard + "0" + trivia.time);
     console.log(trivia.time);
     console.log(trivia.intermissionTime);
     if (trivia.time === 0) {
@@ -109,11 +126,15 @@ function gameStart() {
         $("#end").hide();
         $("#start").hide();
         $("#header").hide();
+        $("#welcome").hide();
+        $("#red").hide();
+        $("#goal").hide();
+        $("#miss").hide();
+        $("#score").hide();
         $("#trivia").show();
         $("#timer").show();
-        $("#timer").html("<p>" + trivia.time + "<p>");
+        $("#timer").text(scoreboard + trivia.time);
         getQuestion();
-        // answer();
         clock();
     }
 }
@@ -131,40 +152,40 @@ function answer() {
     $("#answer1").on("click", function () {
         compareAnswer = trivia.answers[trivia.number][0]
         console.log(compareAnswer);
-        if (compareAnswer === trivia.correctAnswers[trivia.number]) {
+        if (compareAnswer === trivia.correctAnswers[trivia.number][0]) {
             rightAnswer();
         }
-        else if (compareAnswer != trivia.correctAnswers[trivia.number]) {
+        else if (compareAnswer != trivia.correctAnswers[trivia.number][0]) {
             wrongAnswer();
         }
     })
     $("#answer2").on("click", function () {
         compareAnswer = trivia.answers[trivia.number][1]
         console.log(compareAnswer);
-        if (compareAnswer === trivia.correctAnswers[trivia.number]) {
+        if (compareAnswer === trivia.correctAnswers[trivia.number][0]) {
             rightAnswer();
         }
-        else if (compareAnswer != trivia.correctAnswers[trivia.number]) {
+        else if (compareAnswer != trivia.correctAnswers[trivia.number][0]) {
             wrongAnswer();
         }
     })
     $("#answer3").on("click", function () {
         compareAnswer = trivia.answers[trivia.number][2]
         console.log(compareAnswer);
-        if (compareAnswer === trivia.correctAnswers[trivia.number]) {
+        if (compareAnswer === trivia.correctAnswers[trivia.number][0]) {
             rightAnswer();
         }
-        else if (compareAnswer != trivia.correctAnswers[trivia.number]) {
+        else if (compareAnswer != trivia.correctAnswers[trivia.number][0]) {
             wrongAnswer();
         }
     })
     $("#answer4").on("click", function () {
         compareAnswer = trivia.answers[trivia.number][3]
         console.log(compareAnswer);
-        if (compareAnswer === trivia.correctAnswers[trivia.number]) {
+        if (compareAnswer === trivia.correctAnswers[trivia.number][0]) {
             rightAnswer();
         }
-        else if (compareAnswer != trivia.correctAnswers[trivia.number]) {
+        else if (compareAnswer != trivia.correctAnswers[trivia.number][0]) {
             wrongAnswer();
         }
     })
@@ -176,12 +197,16 @@ function rightAnswer() {
     intermissionClock();
     $("#trivia").hide();
     $("#timer").hide();
-    $("#header").text("GOOOOOAL!!!");
+    $("#goal").text("GOOOOOAL!!!");
+    $("#red").hide();
+    $("#miss").hide();
+    $("#score").hide();
     $("#header").show();
+    $("#goal").show();
     $("#correctAnswer").show();
     $("#intermission").show();
-    $("#intermission").html('<img src="assets/images/correct.gif">');
-    $("#correctAnswer").text("CORRECT! It was " + trivia.correctAnswers[trivia.number] + "!");
+    $("#intermission").html(trivia.gifs[trivia.number]);
+    $("#correctAnswer").text("CORRECT! " + trivia.correctAnswers[trivia.number][1]);
     trivia.right++;
     trivia.time = 10;
     $("#timer").html("<h4>" + trivia.time + "</h4>");
@@ -201,12 +226,16 @@ function wrongAnswer() {
     console.log(trivia.time);
     $("#trivia").hide();
     $("#timer").hide();
-    $("#header").text("RED CARD!!!");
+    $("#red").text("RED CARD!!!");
+    $("#goal").hide();
+    $("#miss").hide();
+    $("#score").hide();
     $("#header").show();
+    $("#red").show();
     $("#intermission").show();
     $("#correctAnswer").show();
-    $("#intermission").html('<img src="assets/images/wrong.gif">');
-    $("#correctAnswer").text("WRONG! The correct answer was " + trivia.correctAnswers[trivia.number] + "!");
+    $("#intermission").html(trivia.gifs[trivia.number]);
+    $("#correctAnswer").text("WRONG! The correct answer was " + trivia.correctAnswers[trivia.number][0] + "! " + trivia.correctAnswers[trivia.number][1]);
     trivia.wrong++;
     trivia.time = 10;
     $("#timer").html("<h4>" + trivia.time + "</h4>");
@@ -225,12 +254,16 @@ function noAnswer() {
     console.log(trivia.time);
     $("#trivia").hide();
     $("#timer").hide();
-    $("#header").text("It's like you didn't even try!?!");
+    $("#miss").text("PAY ATTENTION!!!");
+    $("#goal").hide();
+    $("#red").hide();
+    $("#score").hide();
     $("#header").show();
+    $("#miss").show();
     $("#intermission").show();
     $("#correctAnswer").show();
-    $("#intermission").html('<img src="assets/images/noanswer.gif">');
-    $("#correctAnswer").text("WRONG! The correct answer was " + trivia.correctAnswers[trivia.number] + "!");
+    $("#intermission").html(trivia.gifs[trivia.number]);
+    $("#correctAnswer").text("The correct answer was " + trivia.correctAnswers[trivia.number] + "! " + trivia.correctAnswers[trivia.number][1]);
     trivia.unanswered++;
     trivia.time = 10;
     $("#timer").html("<h4>" + trivia.time + "</h4>");
@@ -247,10 +280,14 @@ function gameOver() {
     $("#trivia").hide();
     $("#correctAnswer").hide();
     $("#intermission").hide();
+    $("#red").hide();
+    $("#goal").hide();
+    $("#miss").hide();
+    $("#score").show();
     $("#start").show();
     $("#clickToBegin").show();
     $("#timer").hide();
-    $("#header").text(`THE REF HAS SIGNALED
+    $("#score").text(`THE REF HAS SIGNALED
     FULL TIME!`);
     $("#header").show();
     $("#end").show();
