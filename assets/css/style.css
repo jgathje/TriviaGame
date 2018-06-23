@@ -295,4 +295,29 @@ body {
         border-width: 4px;
         border-radius: 25px 25px 25px 25px;
     }
+    #correctAnswer {
+        font-size: 18px;
+        margin-top: 20px;
+        align-content: center;
+        font-weight: bold;
+        color: darkgoldenrod;
+        background-color: black;
+        border-style: solid;
+        border-color: darkgoldenrod;
+        border-width: 4px;
+        border-radius: 25px 25px 25px 25px;
+        padding: 10px;
+    }
+    #end {
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 18px;
+        width: 100%;
+        color: darkgoldenrod;
+        background-color: black;
+        border-style: solid;
+        border-color: darkgoldenrod;
+        border-width: 4px;
+        border-radius: 25px 25px 25px 25px;
+    }
 }
