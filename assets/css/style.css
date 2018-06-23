@@ -22,7 +22,7 @@ body {
     font-weight: bold;
     color: darkgoldenrod;
     background-color: black;
-    border-style: solid;
+    border-style: double;
     border-color: darkgoldenrod;
     border-width: 4px;
     border-radius: 25px 25px 25px 25px;
@@ -42,7 +42,7 @@ body {
     font-weight: bold;
     color: darkgoldenrod;
     background-color: black;
-    border-style: solid;
+    border-style: double;
     border-color: darkgoldenrod;
     border-width: 4px;
     border-radius: 25px 25px 25px 25px;
@@ -60,7 +60,7 @@ body {
         padding: 10px;
         color: darkgoldenrod;
         background-color: black;
-        border-style: solid;
+        border-style: double;
         border-color: darkgoldenrod;
         border-width: 4px;
         border-radius: 25px 25px 25px 25px;
@@ -86,7 +86,7 @@ body {
     font-weight: bold;
     color: darkgoldenrod;
     background-color: black;
-    border-style: solid;
+    border-style: double;
     border-color: darkgoldenrod;
     border-width: 4px;
     border-radius: 25px 25px 25px 25px;
@@ -99,7 +99,7 @@ body {
     font-weight: bold;
     color: darkgoldenrod;
     background-color: black;
-    border-style: solid;
+    border-style: double;
     border-color: darkgoldenrod;
     border-width: 4px;
     border-radius: 25px 25px 25px 25px;
@@ -112,7 +112,7 @@ body {
     font-weight: bold;
     color: darkgoldenrod;
     background-color: black;
-    border-style: solid;
+    border-style: double;
     border-color: darkgoldenrod;
     border-width: 4px;
     border-radius: 25px 25px 25px 25px;
@@ -125,7 +125,7 @@ body {
     font-weight: bold;
     color: darkgoldenrod;
     background-color: black;
-    border-style: solid;
+    border-style: double;
     border-color: darkgoldenrod;
     border-width: 4px;
     border-radius: 25px 25px 25px 25px;
@@ -135,7 +135,7 @@ body {
     background-color: rgba(0, 0, 0, 0.863);
     color: darkgoldenrod;
     border: 2px;
-    border-style: solid;
+    border-style: double;
     border-color: darkgoldenrod;
     border-radius: 25px;
 }
@@ -151,7 +151,7 @@ body {
     font-weight: bold;
     color: darkgoldenrod;
     background-color: black;
-    border-style: solid;
+    border-style: double;
     border-color: darkgoldenrod;
     border-width: 4px;
     border-radius: 25px 25px 25px 25px;
@@ -162,7 +162,7 @@ body {
     width: 30%;
     color: darkgoldenrod;
     background-color: black;
-    border-style: solid;
+    border-style: double;
     border-color: darkgoldenrod;
     border-width: 4px;
     border-radius: 25px 25px 25px 25px;
@@ -173,7 +173,7 @@ body {
     margin-top: 30px;
     color: darkgoldenrod;
     background-color: black;
-    border-style: solid;
+    border-style: double;
     border-color: darkgoldenrod;
     border-width: 4px;
     border-radius: 25px 25px 25px 25px;
