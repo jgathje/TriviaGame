@@ -11,4 +11,4 @@
 ## Why it's useful:
 * Because I want to pass this course
 ## How to get started:
-* Just click the soocer ball!
+* Just click the soccer ball!
